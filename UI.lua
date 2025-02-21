@@ -58,6 +58,8 @@ local Library = {
 	Theme = {},
 	DropdownSizes = {}, -- to store previous opened dropdown size to resize scrollingFrame canvassize
 }
+
+
 Library.__index = Library
 
 getgenv().OldConnections = Library.Connections
@@ -67,20 +69,25 @@ shared.Flags = Library.Flags
 local Connections = Library.Connections
 local Exclusions = Library.Exclusions
 
+function loadModule(Module)
+	task.wait(.1)
+	return loadstring(game:HttpGetAsync(Module, true))()
+end
+
 local Assets = ScreenGui.Assets
 local Modules = {
-	Dropdown = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Dropdown.lua", true))(),
-	Toggle = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Toggle.lua", true))(),
-	Popup = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Popup.lua", true))(),
-	Slider = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Slider.lua", true))(),
-	Keybind = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Keybind.lua", true))(),
-	TextBox = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/TextBox.lua", true))(),
-	Navigation = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Navigation.lua", true))(),
-	ColorPicker = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/ColorPicker.lua", true))(),
+    Dropdown = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Dropdown.lua"),
+    Toggle = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Toggle.lua"),
+    Popup = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Popup.lua"),
+    Slider = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Slider.lua"),
+    Keybind = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Keybind.lua"),
+    TextBox = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/TextBox.lua"),
+    Navigation = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Navigation.lua"),
+    ColorPicker = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/ColorPicker.lua"),
 }
 
-local Utility = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Utility.lua", true))()
-local Theme = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Theme.lua", true))()
+local Utility = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Utility.lua")
+local Theme = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Theme.lua")
 Library.Theme = Theme
 
 local Popups = ScreenGui.Popups
@@ -192,6 +199,7 @@ function Library.new(options)
 	Title.Text = options.title
 	Glow.Size = UDim2.fromOffset(options.sizeX, options.sizeY)
 end
+
 
 function Library:createAddons(text, imageButton, scrollingFrame, additionalAddons)	
 	local Addon = Assets.Elements.Addons:Clone()
@@ -1793,6 +1801,7 @@ Theme:registerToObjects({
 Utility:draggable(Library, Glow)
 Utility:resizable(Library, Glow.Background.Pages.Resize, Glow)
 
+
 -- Clean up Addon objects with no Addons
 task.spawn(function()
 	while not Library.managerCreated do
@@ -1806,7 +1815,6 @@ task.spawn(function()
 	end
 end)
 
---#endregion
-
 
 return Library
+--#endregion
