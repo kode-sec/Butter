@@ -93,6 +93,7 @@ Library.Theme = Theme
 local Popups = ScreenGui.Popups
 
 -- Set default size for UI
+ScreenGui.Name = "Butter"
 local Glow = ScreenGui.Glow
 Glow.Size = UDim2.fromOffset(Library.sizeX, Library.sizeY)
 
