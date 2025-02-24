@@ -88,7 +88,7 @@ local Modules = {
 
 local Utility = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Utility.lua")
 local Theme = loadModule("https://raw.githubusercontent.com/L3nyFromV3rm/Leny-UI/refs/heads/main/Modules/Theme.lua")
-Library.Theme = Theme
+--Library.Theme = Theme
 
 local Popups = ScreenGui.Popups
 
