@@ -81,8 +81,13 @@ local Connections = Library.Connections
 local Exclusions = Library.Exclusions
 
 function loadModule(Module)
-	task.wait(.3)
-	return loadstring(game:HttpGetAsync(Module, true))()
+	local mod = 
+	request({
+		Url = Module,
+		Method = "GET",
+	}).Body
+
+	return loadstring(mod)()
 end
 
 local Assets = ScreenGui.Assets
