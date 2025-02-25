@@ -16,7 +16,18 @@ if getgenv().PreviousUi then
 	getgenv().PreviousUi:Destroy()
 end
 
-local ScreenGui = game:GetObjects("rbxassetid://99852798675591")[1]
+local ScreenGui
+
+pcall(function()
+	ScreenGui = game:GetObjects("rbxassetid://99852798675591")[1]
+end )
+
+if not ScreenGui then
+	pcall(function()
+		ScreenGui = game:GetService("InsertService"):LoadLocalAsset("rbxassetid://99852798675591")
+	end )
+end
+
 ScreenGui.Enabled = false
 
 if RunService:IsStudio() then
