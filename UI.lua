@@ -81,7 +81,7 @@ local Connections = Library.Connections
 local Exclusions = Library.Exclusions
 
 function loadModule(Module)
-	task.wait(.1)
+	task.wait(.3)
 	local mod = 
 	request({
 		Url = Module,
