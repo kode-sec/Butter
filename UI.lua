@@ -33,7 +33,7 @@ ScreenGui.Enabled = false
 if RunService:IsStudio() then
 	ScreenGui.Parent = game.StarterGui
 else
-	ScreenGui.Parent = gethui and gethui() or cloneref(game:GetService("CoreGui"))
+	ScreenGui.Parent = --[[gethui and gethui() or]] cloneref(game:GetService("CoreGui"))
 end
 
 getgenv().PreviousUi = ScreenGui
