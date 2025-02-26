@@ -1247,7 +1247,7 @@ function Library:createTextLabel(options, parent)
     return TextLabel, updateText
 end
 
-function updateText(TextToUpdate,newText)
+function Library:updateText(TextToUpdate,newText)
      TextToUpdate.Text = newText
 end
 
