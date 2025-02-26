@@ -1228,7 +1228,7 @@ function Library:createTextLabel(options, parent)
     })
 
     local TextLabel = Instance.new("TextLabel")
-    TextLabel.Parent = parent or self.Section
+    TextLabel.Parent = parent and parent.Section or self.Section
     TextLabel.Text = options.text
     TextLabel.Font = Enum.Font.MontserratMedium
     TextLabel.TextSize = options.fontSize
