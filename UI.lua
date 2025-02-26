@@ -1235,7 +1235,7 @@ function Library:createTextLabel(options, parent)
     TextLabel.TextSize = options.fontSize
     TextLabel.TextColor3 = options.textColor
     TextLabel.TextXAlignment = options.alignment
-    TextLabel.BackgroundTransparency = 0 -- Make background visible
+    TextLabel.BackgroundTransparency = 1 -- Make background visible
     TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Black background
     TextLabel.BorderSizePixel = 2 -- Border thickness
     TextLabel.BorderColor3 = Color3.fromRGB(255, 0, 0) -- Red border
