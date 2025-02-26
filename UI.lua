@@ -1219,6 +1219,31 @@ function Library:createDropdown(options: table, parent, scrollingFrame)
 	})
 end
 
+function Library:createTextLabel(options, parent)
+    Utility:validateOptions(options, {
+        text = {Default = "Label", ExpectedType = "string"},
+        fontSize = {Default = 14, ExpectedType = "number"},
+        textColor = {Default = Theme.PrimaryTextColor, ExpectedType = "Color3"},
+        alignment = {Default = Enum.TextXAlignment.Center, ExpectedType = "EnumItem"},
+    })
+
+    local TextLabel = Instance.new("TextLabel")
+    TextLabel.Parent = parent or self.Section
+    TextLabel.Text = options.text
+    TextLabel.Font = Enum.Font.MontserratMedium
+    TextLabel.TextSize = options.fontSize
+    TextLabel.TextColor3 = options.textColor
+    TextLabel.TextXAlignment = options.alignment
+    TextLabel.BackgroundTransparency = 1
+    TextLabel.Size = UDim2.new(1, 0, 0, options.fontSize + 6)
+
+    Theme:registerToObjects({
+        {object = TextLabel, property = "TextColor3", theme = {"PrimaryTextColor"}},
+    })
+
+    return TextLabel
+end
+
 function Library:createKeybind(options: table, parent, scrollingFrame)
 	Utility:validateOptions(options, {
 		text = {Default = "Keybind", ExpectedType = "string"},
