@@ -1227,6 +1227,7 @@ function Library:createTextLabel(options, parent)
         alignment = {Default = Enum.TextXAlignment.Center, ExpectedType = "EnumItem"},
     })
 
+    local txtTable = {}
     local TextLabel = Instance.new("TextLabel")
     TextLabel.Parent = parent and parent.Section or self.Section
     TextLabel.Text = options.text
@@ -1244,13 +1245,12 @@ function Library:createTextLabel(options, parent)
         {object = TextLabel, property = "TextColor3", theme = {"PrimaryTextColor"}},
     })
 
-    return TextLabel, Library.updateText
-end
+   function txtTable.UpdateLabel(newText)
+        TextLabel.Text = newText
+   end
 
-function Library:updateText(TextToUpdate, newText)
-    TextToUpdate.Text = newText
+    return txtTable
 end
-
 
 function Library:createKeybind(options: table, parent, scrollingFrame)
 	Utility:validateOptions(options, {
