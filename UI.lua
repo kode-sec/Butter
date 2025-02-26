@@ -1244,11 +1244,11 @@ function Library:createTextLabel(options, parent)
         {object = TextLabel, property = "TextColor3", theme = {"PrimaryTextColor"}},
     })
 
-    local function updateText(newText)
-        TextLabel.Text = newText
-    end
-
     return TextLabel, updateText
+end
+
+function updateText(TextToUpdate,newText)
+     TextToUpdate.Text = newText
 end
 
 function Library:createKeybind(options: table, parent, scrollingFrame)
