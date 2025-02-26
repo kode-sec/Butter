@@ -1249,7 +1249,7 @@ function Library:createTextLabel(options, parent)
         TextLabel.Text = newText
    end
 
-    return txtTable
+    return TextLabel, txtTable
 end
 
 function Library:createKeybind(options: table, parent, scrollingFrame)
