@@ -3,6 +3,7 @@
 
 -- This file was protected using Luraph Obfuscator v14.3 [https://lura.ph/]
 
+repeat task.wait() until game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.PlayerGui
 --Discord Auto Invite
 pcall(function()
     local Request = syn and syn.request or request
