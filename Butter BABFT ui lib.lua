@@ -44,6 +44,7 @@
     
     function Lib:CreateWindow(Name)
         local Window = {}
+        local currentSection = nil
 
         local Main = Instance.new("ImageLabel")
         local glow = Instance.new("ImageLabel")
@@ -212,7 +213,14 @@
             end
         end)
         local function Update(Size,Part)
-            Main.Size = Main.Size + UDim2.new(0,0,0,Size)
+            local sizeToAdd = Size
+            if currentSection and not currentSection.IsOpen then
+                sizeToAdd = 0
+                if Part then
+                    Part.Visible = false
+                end
+            end
+            Main.Size = Main.Size + UDim2.new(0,0,0,sizeToAdd)
             for i,v in pairs(holder:GetChildren()) do
                 if v:IsA("Frame") then
                     v.LayoutOrder = i - 2
@@ -358,7 +366,7 @@
             Text.MouseButton1Click:Connect(function()
                 spawn(callback)
             end)
-            Update(25)
+            Update(25, Button)
         end
         
         function Window:Button2(name, options, callback)
@@ -396,7 +404,7 @@
             Text.MouseButton1Click:Connect(function()
                 spawn(callback)
             end)
-            Update(25)
+            Update(25, Button)
         end
 
         function Window:Toggle(name, options, callback)
@@ -482,7 +490,7 @@
                 end
                 spawn(callback)
             end)
-            Update(25)
+            Update(25, Toggle)
         end
 
         function Window:Slider(name, options, callback)
@@ -641,7 +649,7 @@
             Mouse.Button1Up:Connect(function()
                 MouseDown = false
             end)
-            Update(30)
+            Update(30, Slider)
         end
 
         function Window:Dropdown(name, options, callback)
@@ -690,7 +698,7 @@
             Dropdown.BackgroundTransparency = 1.000
             Dropdown.Size = UDim2.new(1, 0, 0, 25)
 
-            Update(25)
+             Update(25, Dropdown)
             
             local function Del(value)
                 for i,v in pairs(ScrollingFrame:GetChildren()) do
@@ -938,7 +946,7 @@
     Dropdown.BackgroundTransparency = 1.000
     Dropdown.Size = UDim2.new(1, 0, 0, 25)
 
-    Update(25)
+    Update(25, Dropdown)
     
     local function Del(value)
         for i,v in pairs(ScrollingFrame:GetChildren()) do
@@ -1297,7 +1305,7 @@ end
                 end)
             end)
 
-            Update(25)
+            Update(25, Hotkey)
         end
 
         function Window:Box(name, options, callback)
@@ -1374,7 +1382,7 @@ end
                 spawn(callback)
             end)
 
-            Update(25)
+            Update(25, TextBox)
         end
 
         function Window:Search(options)
@@ -1459,9 +1467,10 @@ end
                 end
             end)
 
-            Update(25)
+            Update(25, Search)
         end
-        function Window:Section(text)
+        function Window:Section(text,isOpen)
+            currentSection = nil
             local Title = Instance.new("Frame")
             local Title_2 = Instance.new("TextLabel")
             local minimize = Instance.new("TextButton")
@@ -1560,12 +1569,18 @@ end
                 Frame.BackgroundTransparency = 1.000
                 return Frame
             end
+            
+            local sectionObj = {
+                IsOpen = (isOpen ~= false)
+            }
+            
             Minimize2Usable = true;
             minimize.MouseButton1Click:Connect(function()
                 local Numbers = GetNumbers()
                 if Minimize2Usable == true then
                     if minimize.Text == "-" then
                         minimize.Text = "+"
+                        sectionObj.IsOpen = false
                         Visible(false)
                         local Frame = CreateAnimation(Numbers)
                         Minimize2Usable = false;
@@ -1576,6 +1591,7 @@ end
                         Frame:Destroy()
                     else
                         minimize.Text = "-"
+                        sectionObj.IsOpen = true
                         local Frame = CreateAnimation(0)
                         Minimize2Usable = false;
                         Frame:TweenSize(UDim2.new(0, Main.Size.X.Offset, 0, Numbers), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.2, true)
@@ -1587,7 +1603,12 @@ end
                     end
                 end
             end)
+            if isOpen == false then
+                minimize.Text = "+"
+                sectionObj.IsOpen = false
+            end
             Update(25)
+            currentSection = sectionObj
         end
         function Window:Label(text)
             local Frame = Instance.new("Frame")
@@ -1616,7 +1637,7 @@ end
             Frame_2.Position = UDim2.new(0.303000003, 0, 0.800000012, 0)
             Frame_2.Size = UDim2.new(0, 57, 0, 1)
 
-            Update(25)
+            Update(25, Frame)
         end
         return Window
     end
