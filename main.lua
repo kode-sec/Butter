@@ -1,6 +1,6 @@
 local Key = getgenv().LDKey or getgenv().LD_KEY or script_key
 if Key == nil or Key == '' or Key == 'Key here' or Key == 'PUT KEY HERE' or type(Key) ~= 'string' then
-  getgenv().LD_KEY = ''
+  getgenv().LDKey ~= ''
   loadstring(game:HttpGet("https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/free_key_ui.lua"))()
   repeat task.wait() until getgenv().LDKey ~= ''
 end
