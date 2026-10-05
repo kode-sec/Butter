@@ -9,6 +9,8 @@ end
 
 if game.PlaceId == 13822889 then -- Lumber Tycoon 2 🌳
 loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/LT2.lua'))("")
+elseif game.PlaceId == 107535308163741 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/Huss.lua"))()
 elseif game.PlaceId == 537413528 then -- Build A Boat For Treasure 🌊
 local function Discord()
     pcall(function()
