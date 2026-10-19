@@ -48,8 +48,10 @@ end
 pcall(function() Discord() end)
   
 loadstring(game:HttpGet("https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/ButterCooked.lua"))()
-elseif game.PlaceId == 139542527731344 then
+elseif game.PlaceId == 139542527731344 then -- fries game
   loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/fries.lua'))("")
+elseif game.PlaceId == 94891079210424 then -- fries lobby
+game.Players.LocalPlayer:Kick("Please execute the script in the main game, not the lobby")
 elseif game.PlaceId == 79268393072444 then -- Sell Lemons 🍋
 loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/Butter%20revolt%20%2B%20Key%20sys-obfuscated.lua'))("")
 end
