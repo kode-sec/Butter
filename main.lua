@@ -52,7 +52,7 @@ elseif game.PlaceId == 139542527731344 then -- fries game
   loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/fries.lua'))("")
 elseif game.PlaceId == 94891079210424 then -- fries lobby
 game.Players.LocalPlayer:Kick("Please execute the script in the main game, not the lobby")
-elseif game.PlaceId == 139542527731344 then -- Dont splash game
+elseif game.PlaceId == 139386728420706 then -- Dont splash game
   loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/DontSplash.lua'))("")
 elseif game.PlaceId == 119958473240233 then -- Dont splash lobby
 game.Players.LocalPlayer:Kick("Please execute the script in the main game, not the lobby")
