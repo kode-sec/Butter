@@ -56,6 +56,6 @@ elseif game.PlaceId == 139386728420706 then -- Dont splash game
   loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/DontSplash.lua'))("")
 elseif game.PlaceId == 119958473240233 then -- Dont splash lobby
 game.Players.LocalPlayer:Kick("Please execute the script in the main game, not the lobby")
-elseif game.PlaceId == 79268393072444 then -- Sell Lemons 🍋
+elseif game.PlaceId == 3351674303 then -- Driving Empire
 loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/Butter%20revolt%20%2B%20Key%20sys-obfuscated.lua'))("")
 end
