@@ -58,4 +58,6 @@ elseif game.PlaceId == 119958473240233 then -- Dont splash lobby
 game.Players.LocalPlayer:Kick("Please execute the script in the main game, not the lobby")
 elseif game.PlaceId == 3351674303 then -- Driving Empire
 loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/Butter%20revolt%20%2B%20Key%20sys-obfuscated.lua'))("")
+elseif game.PlaceId == 82854191372599 then -- Mechanic-Legends
+loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/Mechanic%20Legends-obfuscated.lua'))("")
 end
