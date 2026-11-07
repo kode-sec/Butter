@@ -62,4 +62,6 @@ elseif game.PlaceId == 82854191372599 then -- Mechanic-Legends
 loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/Mechanic%20Legends-obfuscated.lua'))("")
 elseif game.PlaceId == 125310131519813 then -- Mosquito
   loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/Mosquito.lua'))("")
+elseif game.PlacecId == 71000056608850 then --1m clicks
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/kode-sec/Butter/refs/heads/main/1mclicks.lua'))("")
 end
