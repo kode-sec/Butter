@@ -68,6 +68,8 @@ elseif game.PlaceId == 83784149502814 then -- bloxng
   loadstring(game:HttpGet("https://luadefender.xyz/v4/scripts/d5d3f166-a28a-4797-a615-ef317cf49bba.lua"))()
 elseif game.PlaceId == 125310131519813 then -- Mosquito
   loadstring(game:HttpGet("https://luadefender.xyz/v4/scripts/4ebc6037-60ac-4f8d-99e0-e5455b66eea6.lua"))()
-elseif game.PlaceId == 71000056608850 then --1m clicks
+elseif game.PlaceId == 71000056608850 then -- 1m clicks
    loadstring(game:HttpGet("https://luadefender.xyz/v4/scripts/9a5b14e6-31a2-4872-8320-cc4d17ad362f.lua"))()
+elseif game.PlaceId == 606849621 then -- Jailbreak 
+   loadstring(game:HttpGet("https://luadefender.xyz/v4/scripts/c7741ef3-ab72-4017-8c98-391bcea69380.lua"))()
 end
