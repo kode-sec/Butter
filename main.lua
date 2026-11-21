@@ -72,4 +72,6 @@ elseif game.PlaceId == 71000056608850 then -- 1m clicks
    loadstring(game:HttpGet("https://luadefender.xyz/v4/scripts/9a5b14e6-31a2-4872-8320-cc4d17ad362f.lua"))()
 elseif game.PlaceId == 606849621 then -- Jailbreak 
    loadstring(game:HttpGet("https://luadefender.xyz/v4/scripts/c7741ef3-ab72-4017-8c98-391bcea69380.lua"))()
+elseif game.PlaceId == 116884863643647 then -- Realistic Hunting
+   loadstring(game:HttpGet("https://luadefender.xyz/v4/scripts/43855606-3420-41bb-9ddc-e7520f75abe7.lua"))()
 end
